@@ -1,0 +1,7 @@
+---
+Name: raspberryswwirl-codemirrorfield-config
+After: "*"
+---
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - RS\Extension\CodeMirrorFieldLeftAndMainExtension

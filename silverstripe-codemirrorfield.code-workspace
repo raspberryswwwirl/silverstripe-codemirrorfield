@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+        "php.suggest.basic": false,
+        "saveAndRun": {
+            "commands": [
+              {
+                "cmd": "sh sync",
+                "useShortcut": false,
+                "silent": false
+              }
+            ]
+        }        
+    }
+}
