@@ -63,16 +63,16 @@ export default {
 
         const init = () => {
             // Capture the SS field that will hold the output
-            targetField.value = !targetField.value ? document.querySelector(`#${fieldName.value}`) : targetField.value
+            targetField = document.querySelector(`#${fieldName.value}`)
             // value.value = (targetField.value?.value != props.value ) ? targetField.value?.value ?? props.value : props.value
-            console.log('field',document.querySelector(`#${fieldName}`));
+            console.log('field',document.querySelector(`#${fieldName.value}`));
             objEditor = new EditorView({
                 doc: 'console.log("Hello world")',
                 extensions: [
                     basicSetup,
                     javascript(),
                 ],
-                parent: document.querySelector(`#${fieldName}`)
+                parent: document.querySelector(`#${fieldName.value}`)
             })
         }
 
