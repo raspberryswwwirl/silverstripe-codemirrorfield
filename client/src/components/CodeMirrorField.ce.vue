@@ -1,5 +1,5 @@
 <template>
-    <input type="text" class="codemirrorfield" v-model="value">
+    <slot></slot>
 </template>
 
 <script>
