@@ -53,9 +53,9 @@ const _sfc_main = {
       }
     });
     const init = () => {
-      targetField = document.querySelector(`#${fieldName.value}`);
+      targetField.value = document.querySelector(`#${fieldName.value}`);
       console.log("field", document.querySelector(`#${fieldName.value}`));
-      objEditor = new EditorView({
+      objEditor.value = new EditorView({
         doc: 'console.log("Hello world")',
         extensions: [
           basicSetup,
