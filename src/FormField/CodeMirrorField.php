@@ -2,13 +2,13 @@
 
 namespace RS\FormField;
 
-use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 
-class CodeMirrorField extends TextField {
+class CodeMirrorField extends TextareaField {
     protected $selections = null;
     protected $selections_field = null;
 
-    protected $inputType = 'hidden';
+    protected $inputType = 'textarea';
 
     public function setSelections( $value, $selections_field ) {
         $this->selections       = $value;
