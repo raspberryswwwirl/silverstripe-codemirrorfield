@@ -1,2 +1,94 @@
-import{r as e,c as t,o as r,a as l,b as n,d as u,e as a,E as o,f as s,g as d}from"./vendor.js";var i=(e,t)=>{const r=e.__vccOpts||e;for(const[l,n]of t)r[l]=n;return r};const c={name:"CodeMirrorField",props:{id:{type:String,default(){return null}},title:{type:String,default(){return"Untitled"}},value:{type:String,default(){return null}},field:{type:String,default(){return null}}},setup(a,{emit:d}){const i=e(null);const c=e(null);const v=t((()=>{var e;return null!=(e=a.field)?e:null}));const f=t({get:()=>a.value,set:e=>{a.value=e;i.value.value=e;i.value.classList.add("dirty");d("update:value",e)}});const p=()=>{i=document.querySelector(`#${v.value}`);void 0;c=new o({doc:'console.log("Hello world")',extensions:[s,javascript()],parent:document.querySelector(`#${v.value}`)})};r((()=>{}));l((()=>{p()}));n((()=>{}));u((()=>{}));return{fieldName:v,targetField:i,objEditor:c,value:f}}};function v(e,t,r,l,n,u){return a(e.$slots,"default")}var f=i(c,[["render",v]]);var p="";function m(){const e=d(f);customElements.define("vue-codemirrorfield",e)}m();
+import { r as ref, c as computed, o as onBeforeMount, a as onMounted, b as onBeforeUpdate, d as onUpdated, e as renderSlot, E as EditorView, f as basicSetup, g as defineCustomElement } from "./vendor.js";
+var _export_sfc = (sfc, props) => {
+  const target = sfc.__vccOpts || sfc;
+  for (const [key, val] of props) {
+    target[key] = val;
+  }
+  return target;
+};
+const _sfc_main = {
+  name: "CodeMirrorField",
+  props: {
+    id: {
+      type: String,
+      default() {
+        return null;
+      }
+    },
+    title: {
+      type: String,
+      default() {
+        return "Untitled";
+      }
+    },
+    value: {
+      type: String,
+      default() {
+        return null;
+      }
+    },
+    field: {
+      type: String,
+      default() {
+        return null;
+      }
+    }
+  },
+  setup(props, { emit }) {
+    const targetField = ref(null);
+    const objEditor = ref(null);
+    const fieldName = computed(() => {
+      var _a;
+      return (_a = props.field) != null ? _a : null;
+    });
+    const value = computed({
+      get: () => {
+        return props.value;
+      },
+      set: (value2) => {
+        props.value = value2;
+        targetField.value.value = value2;
+        targetField.value.classList.add("dirty");
+        emit("update:value", value2);
+      }
+    });
+    const init = () => {
+      targetField = document.querySelector(`#${fieldName.value}`);
+      console.log("field", document.querySelector(`#${fieldName.value}`));
+      objEditor = new EditorView({
+        doc: 'console.log("Hello world")',
+        extensions: [
+          basicSetup,
+          javascript()
+        ],
+        parent: document.querySelector(`#${fieldName.value}`)
+      });
+    };
+    onBeforeMount(() => {
+    });
+    onMounted(() => {
+      init();
+    });
+    onBeforeUpdate(() => {
+    });
+    onUpdated(() => {
+    });
+    return {
+      fieldName,
+      targetField,
+      objEditor,
+      value
+    };
+  }
+};
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return renderSlot(_ctx.$slots, "default");
+}
+var CodeMirrorField = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render]]);
+var main = "";
+function register() {
+  const CodeMirrorFieldElement = defineCustomElement(CodeMirrorField);
+  customElements.define("vue-codemirrorfield", CodeMirrorFieldElement);
+}
+register();
 //# sourceMappingURL=main.js.map

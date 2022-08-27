@@ -1,1 +1,15 @@
-#Root .field.codemirrorfield{opacity:1}vue-codemirrorfield{display:flex;position:relative;box-sizing:border-box;width:100%;max-width:256px;min-width:256px;flex-flow:row nowrap;align-items:center;justify-content:flex-start}
+#Root .field.codemirrorfield {
+  opacity: 1;
+}
+
+vue-codemirrorfield {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 256px;
+  min-width: 256px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
