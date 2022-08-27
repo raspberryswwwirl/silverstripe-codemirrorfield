@@ -4,6 +4,7 @@
 
 <script>
 import { computed, ref, reactive, onBeforeMount, onMounted, onBeforeUpdate, onUpdated } from 'vue'
+import { EditorView, basicSetup } from 'codemirror'
 
 export default {
     name: "CodeMirrorField",
@@ -35,8 +36,8 @@ export default {
     },
 
     setup(props, {emit}) {
-        const colorValues           = ref([])
-        const targetField           = ref(null)
+        const targetField = ref(null)
+        const objEditor = ref(null)
 
         const fieldName = computed(() => {
             return props.field ?? null
@@ -63,8 +64,15 @@ export default {
         const init = () => {
             // Capture the SS field that will hold the output
             targetField.value = !targetField.value ? document.querySelector(`#${fieldName.value}`) : targetField.value
-
-            value.value = (targetField.value?.value != props.value ) ? targetField.value?.value ?? props.value : props.value
+            // value.value = (targetField.value?.value != props.value ) ? targetField.value?.value ?? props.value : props.value
+            objEditor = new EditorView({
+                doc: 'console.log("Hello world")',
+                extensions: [
+                    basicSetup,
+                    javascript(),
+                ],
+                parent: document.querySelector(`#${fieldName}`)
+            })
         }
 
         // lifecycle hooks
@@ -85,6 +93,7 @@ export default {
         return {
             fieldName,
             targetField,
+            objEditor,
             value
         }
     }
