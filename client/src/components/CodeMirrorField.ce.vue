@@ -70,8 +70,8 @@ export default {
                 doc: 'console.log("Hello world")',
                 extensions: [
                     basicSetup,
-                    javascript(),
                 ],
+                lineNumbers: true,
                 parent: document.querySelector(`#${fieldName.value}`)
             })
         }

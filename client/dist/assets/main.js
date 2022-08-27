@@ -58,9 +58,9 @@ const _sfc_main = {
       objEditor.value = new EditorView({
         doc: 'console.log("Hello world")',
         extensions: [
-          basicSetup,
-          javascript()
+          basicSetup
         ],
+        lineNumbers: true,
         parent: document.querySelector(`#${fieldName.value}`)
       });
     };
